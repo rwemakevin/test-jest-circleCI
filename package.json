@@ -1,0 +1,19 @@
+{
+  "name": "test-jest-circleci",
+  "version": "1.0.0",
+  "description": "tutorial for implenting CircleCI with Jest",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest",
+    "dev": "nodemon ./index.js"
+  },
+  "author": "Kevin Rwema",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.24.3",
+    "@babel/preset-env": "^7.24.3",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.0"
+  }
+}
