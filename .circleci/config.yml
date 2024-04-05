@@ -5,6 +5,9 @@ jobs:
     docker:
       - image: circleci/node:latest
 
+    environment:
+      CC_TEST_REPORTER_ID: a8ff7581948d960a42547f3a861f7d8f9b266ac1eed78a4ba154feb4ea8e7507
+
     steps:
       - checkout
 
@@ -17,5 +20,13 @@ jobs:
       - run:
           name: Run tests
           command: npm test
+
+      - run:
+          name: Run Code Climate Test Reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+            ./cc-test-reporter before-build
+            ./cc-test-reporter after-build --exit-code $?
 
       # Optionally, you can add more steps like building your app, deploying it, etc.
